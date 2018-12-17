@@ -39,6 +39,8 @@ public class AuthorityIntercepter implements HandlerInterceptor {
         List<Annotation> annotationsList = Arrays.asList(annotations);
         for (Annotation annotation : annotationsList) {
             if (annotation.annotationType().equals(Authority.class)) {
+                Authority authority = (Authority) annotation;
+                String value = authority.value();
                 return true;
             }
         }
