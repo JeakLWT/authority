@@ -1,13 +1,9 @@
 package com.daojia.authority.intercepter;
 
 
-import com.alibaba.fastjson.JSON;
 import com.daojia.authority.annotation.Authority;
 import com.daojia.authority.entity.DJTest;
 import com.daojia.authority.service.AuthorityService;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Service;
 import org.springframework.web.method.HandlerMethod;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;

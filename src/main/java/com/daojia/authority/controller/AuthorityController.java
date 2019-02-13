@@ -1,6 +1,8 @@
 package com.daojia.authority.controller;
 
 import com.daojia.authority.annotation.Authority;
+import com.daojia.authority.util.MyThreadPool;
+import io.swagger.annotations.Api;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -9,6 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
  * @Date: 2018/12/8 11:38
  * @Description:
  */
+@Api(value = "权限验证页")
 @RestController
 @RequestMapping("/authorityController")
 public class AuthorityController {
@@ -16,7 +19,8 @@ public class AuthorityController {
     @Authority
     @RequestMapping("/getMyAuthorityPass")
     public String getMyAuthorityPass() {
+        MyThreadPool.instanceThreadPool();
         System.out.println("权限测试");
-        return null;
+        return  null;
     }
 }
