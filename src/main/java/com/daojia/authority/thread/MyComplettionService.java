@@ -13,19 +13,31 @@ public class MyComplettionService {
     public static void main(String[] args) throws InterruptedException, ExecutionException {
         ThreadPoolExecutor threadPoolExecutor = MyThreadPool.instanceThreadPool();
         List callableList=new ArrayList<Callable>();
-        CompletionService completionService1 = new CompletionService("name1",1000);
-        CompletionService completionService2 = new CompletionService("name2",3000);
-        CompletionService completionService3 = new CompletionService("name3",2000);
+        CompletionServiceThread completionService1 = new CompletionServiceThread("name1",1000);
+        CompletionServiceThread completionService2 = new CompletionServiceThread("name2",3000);
+        CompletionServiceThread completionService3 = new CompletionServiceThread("name3",2000);
+        CompletionExceptionThread completionExceptionThread=new CompletionExceptionThread("name4",500);
         callableList.add(completionService1);
         callableList.add(completionService2);
         callableList.add(completionService3);
+        callableList.add(completionExceptionThread);
 
         ExecutorCompletionService executorCompletionService = new ExecutorCompletionService(threadPoolExecutor);
         for (int i = 0; i < callableList.size(); i++) {
-            executorCompletionService.submit((Callable) callableList.get(i));
+            try {
+                executorCompletionService.submit((Callable) callableList.get(i));
+            }catch (Exception e){
+                System.out.println("执行线程异常处理");
+            }
+
         }
         for (int i = 0; i <3 ; i++) {
-            System.out.println("第"+i+"个打印"+executorCompletionService.take().get());
+            try {
+                System.out.println("第"+i+"个打印"+executorCompletionService.take().get());
+            }catch (Exception e){
+                System.out.println("获取结果异常处理");
+            }
+
         }
 
 

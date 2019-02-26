@@ -2,11 +2,11 @@ package com.daojia.authority.thread;
 
 import java.util.concurrent.Callable;
 
-public class CompletionService implements Callable<String>{
+public class CompletionServiceThread implements Callable<String>{
     private String name;
     private long sleepValue;
 
-    public CompletionService(String name, long sleepValue) {
+    public CompletionServiceThread(String name, long sleepValue) {
         this.name = name;
         this.sleepValue = sleepValue;
     }
