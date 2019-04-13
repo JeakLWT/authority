@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
  * @Description:
  */
 @Api(value = "权限验证页")
-@RestController
+@RestController(value = "hello")
 @RequestMapping("/authorityController")
 public class AuthorityController {
 
@@ -21,6 +21,6 @@ public class AuthorityController {
     public String getMyAuthorityPass() {
         MyThreadPool.instanceThreadPool();
         System.out.println("权限测试");
-        return  null;
+        return  "hello";
     }
 }

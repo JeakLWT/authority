@@ -4,6 +4,7 @@ import com.daojia.authority.intercepter.AuthorityIntercepter;
 import com.daojia.authority.intercepter.SessionInterceptor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.core.annotation.AnnotationUtils;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistration;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
@@ -37,4 +38,6 @@ public class AnnotationConfigration implements WebMvcConfigurer {
     public SessionInterceptor sessionInterceptor(){
         return new SessionInterceptor();
     }
+
+
 }

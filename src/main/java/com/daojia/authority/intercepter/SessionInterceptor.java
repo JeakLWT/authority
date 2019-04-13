@@ -20,7 +20,8 @@ public class SessionInterceptor implements HandlerInterceptor {
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
         HttpSession session = request.getSession();
         Cookie[] cookies = request.getCookies();
-        if(!CollectionUtils.isEmpty(Arrays.asList(cookies))){
+
+        if(cookies!=null&&!CollectionUtils.isEmpty(Arrays.asList(cookies))){
             for (Cookie cookie:cookies) {
                 cookie.setValue("cookies");
             }

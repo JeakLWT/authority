@@ -1,5 +1,6 @@
 package com.daojia.authority.listener;
 
+import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
 import javax.servlet.http.HttpSessionEvent;
@@ -10,6 +11,7 @@ import javax.servlet.http.HttpSessionListener;
  * @Date: 2019/2/11 17:49
  * @Description:
  */
+@Order
 @Component
 public class MySessionListener implements HttpSessionListener {
     @Override
