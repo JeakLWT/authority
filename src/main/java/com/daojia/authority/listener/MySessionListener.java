@@ -12,7 +12,6 @@ import javax.servlet.http.HttpSessionListener;
  * @Description:
  */
 @Order
-@Component
 public class MySessionListener implements HttpSessionListener {
     @Override
     public void sessionCreated(HttpSessionEvent se) {

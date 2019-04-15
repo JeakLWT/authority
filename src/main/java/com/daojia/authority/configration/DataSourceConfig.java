@@ -24,6 +24,13 @@ public class DataSourceConfig {
         druidDataSource.setMinIdle(dataSourceProperties().getMinIdle());
         druidDataSource.setMaxActive(dataSourceProperties().getMaxActive());
         druidDataSource.setMaxWait(dataSourceProperties().getMaxWait());
+        druidDataSource.setMinEvictableIdleTimeMillis(dataSourceProperties().getMinEvictableIdleTimeMillis());
+        druidDataSource.setMaxPoolPreparedStatementPerConnectionSize(dataSourceProperties().getMaxPoolPreparedStatementPerConnectionSize());
+        druidDataSource.setValidationQuery(dataSourceProperties().getValidationQuery());
+        druidDataSource.setTestOnBorrow(dataSourceProperties().isTestOnBorrow());
+        druidDataSource.setTestOnReturn(dataSourceProperties().isTestOnReturn());
+        druidDataSource.setTestWhileIdle(dataSourceProperties().isTestWhileIdle());
+        druidDataSource.setPoolPreparedStatements(dataSourceProperties().isPoolPreparedStatements());
         return druidDataSource;
     }
 

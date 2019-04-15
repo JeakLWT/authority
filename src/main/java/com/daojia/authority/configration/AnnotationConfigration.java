@@ -25,7 +25,11 @@ public class AnnotationConfigration implements WebMvcConfigurer {
         interceptorRegistration.order(2);
         sessionIntercepter.order(1);
         sessionIntercepter.addPathPatterns("/**");
+        sessionIntercepter.excludePathPatterns("/");
+        sessionIntercepter.excludePathPatterns("");
         interceptorRegistration.addPathPatterns("/**");
+        interceptorRegistration.excludePathPatterns("/");
+        interceptorRegistration.excludePathPatterns("");
         interceptorRegistration.excludePathPatterns("http://localhost/swagger-ui.html");
     }
 

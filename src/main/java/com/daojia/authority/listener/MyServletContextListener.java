@@ -20,7 +20,7 @@ public class MyServletContextListener implements ServletContextListener {
 
     @Override
     public void contextInitialized(ServletContextEvent sce) {
-        AuthorityService authorityService = WebApplicationContextUtils.getWebApplicationContext(sce.getServletContext()).getBean(AuthorityService.class);
+       // AuthorityService authorityService = WebApplicationContextUtils.getWebApplicationContext(sce.getServletContext()).getBean(AuthorityService.class);
         MyThreadPool.instanceThreadPool();
         System.out.println("ServletContextListener .....................start");
     }

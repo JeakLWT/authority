@@ -1,6 +1,7 @@
 package com.daojia.authority.controller;
 
 import com.daojia.authority.annotation.Authority;
+import com.daojia.authority.annotation.LoginRequired;
 import com.daojia.authority.util.MyThreadPool;
 import io.swagger.annotations.Api;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -18,6 +19,7 @@ public class AuthorityController {
 
     @Authority
     @RequestMapping("/getMyAuthorityPass")
+    @LoginRequired
     public String getMyAuthorityPass() {
         MyThreadPool.instanceThreadPool();
         System.out.println("权限测试");

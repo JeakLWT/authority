@@ -1,9 +1,11 @@
 package com.daojia.authority.intercepter;
 
 import org.springframework.util.CollectionUtils;
+import org.springframework.web.method.HandlerMethod;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.servlet.ServletContext;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -18,6 +20,11 @@ import java.util.Arrays;
 public class SessionInterceptor implements HandlerInterceptor {
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
+        StringBuffer requestURL = request.getRequestURL();
+        System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>"+requestURL.toString());
+        if (!(handler instanceof HandlerMethod)) {
+            return true;
+        }
         HttpSession session = request.getSession();
         Cookie[] cookies = request.getCookies();
 
