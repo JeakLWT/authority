@@ -8,6 +8,7 @@ import org.springframework.context.annotation.EnableAspectJAutoProxy;
 
 @MapperScan("com.daojia.authority.mapper")
 @SpringBootApplication
+@EnableAspectJAutoProxy
 public class AuthorityApplication {
 
     public static void main(String[] args) {

@@ -9,12 +9,7 @@ import org.aspectj.lang.annotation.Pointcut;
 import org.aspectj.lang.reflect.MethodSignature;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.ComponentScan;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.EnableAspectJAutoProxy;
 import org.springframework.stereotype.Component;
-import org.springframework.web.client.RestTemplate;
 import org.springframework.web.context.request.RequestAttributes;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
@@ -30,7 +25,7 @@ public class ControllerLoginAop {
     private static final Logger logger = LoggerFactory.getLogger(ControllerLoginAop.class);
 
 
-    @Pointcut("execution(public * com.daojia.authority.*.*(..))" +
+    @Pointcut("execution(public * com.daojia.authority.controller.*.*(..))" +
             " && (@annotation(org.springframework.web.bind.annotation.RequestMapping)" +
             " || @annotation(org.springframework.web.bind.annotation.GetMapping) " +
             " || @annotation(org.springframework.web.bind.annotation.PostMapping))")
