@@ -10,7 +10,9 @@ import com.daojia.authority.entity.DJTest;
 import com.daojia.authority.service.AuthorityService;
 import com.daojia.authority.service.CommonInterface;
 import com.daojia.authority.thread.*;
+import com.daojia.authority.util.FdfsUtil;
 import com.daojia.authority.util.SpringContextHolder;
+import org.csource.common.MyException;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,6 +22,7 @@ import org.springframework.core.annotation.AnnotationUtils;
 import org.springframework.stereotype.Controller;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -136,6 +139,12 @@ public class AuthorityApplicationTests {
         String value = annotation.value();
         System.out.println("");
 
+
+    }
+
+    @Test
+    public void testFdfs() throws IOException, MyException {
+        FdfsUtil.FdfsUploadFile();
 
     }
 
