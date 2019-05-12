@@ -13,6 +13,7 @@ public class RedisUtil {
     static {
         logger.info("redis begin connecting.............");
         JedisShardInfo jedisShardInfo=new JedisShardInfo("47.105.176.198",6379);
+        jedisShardInfo.setPassword("123456");
         jedis = jedisShardInfo.createResource();
         logger.info("redis begin connected.............");
         jedis.ping();
@@ -23,4 +24,8 @@ public class RedisUtil {
        return jedis.get(key);
     }
 
+
+    public static void setKey(String key,String value){
+        jedis.set(key,value);
+    }
 }
