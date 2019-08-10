@@ -39,7 +39,7 @@ public class ControllerLoginAop {
      @return JsonResult（被拦截方法的执行结果，或需要登录的错误提示。）*/
 
     @Around("controllerMethodPointcut()")
-    public Object Interceptor(ProceedingJoinPoint pjp) {
+    public void Interceptor(ProceedingJoinPoint pjp) throws Throwable {
         long beginTime = System.currentTimeMillis();
         MethodSignature signature = (MethodSignature) pjp.getSignature();
         Method method = signature.getMethod(); //获取被拦截的方法
@@ -65,7 +65,8 @@ public class ControllerLoginAop {
                 result = QzhResult.error(throwable.getMessage());
             }
         }*/
-        return result;
+       // return result;
+        Object proceed = pjp.proceed();
     }
 
 
